@@ -6,17 +6,24 @@ import { refreshState } from './actionCreators'
 
 
 class App extends Component {
-    componentDidMount() {
+    componentWillMount() {
         this.props.dispatch(refreshState())
     }
     render() {
-        return (
-            <div className="app">
-                <Calendar/>
-                <Todo/>
-            </div>
-        )
+        if(this.props.loaded) {
+            return (
+                <div className="app">
+                    <Calendar/>
+                    <Todo/>
+                </div>
+            )
+        }
+        return null
     }
 }
 
-export default connect()(App)
+const mapStateToProps = state => ({
+    loaded: state.loaded
+})
+
+export default connect(mapStateToProps)(App)

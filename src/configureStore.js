@@ -6,7 +6,10 @@ import thunk from 'redux-thunk'
 
 const wrappedReducer = (state, action) => {
     if(action.type === REFRESH_STATE) {
-        return action.state
+        return {
+            ...action.state,
+            loaded: true
+        }
     }
     const nextState = reducer(state, action)
     if (!action.type.includes('INIT')) {

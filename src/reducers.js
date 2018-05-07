@@ -11,7 +11,8 @@ import {
 
 let initialState = {
     todos: [],
-    events: []
+    events: [],
+    loaded: false
 }
 
 export default (state = initialState, action) => {
