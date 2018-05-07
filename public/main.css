@@ -1,0 +1,115 @@
+html, body {
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding: 0;
+    margin: 0;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    color: #2196f3;
+}
+
+.calendar {
+    width: 500px;
+    padding: 20px;
+}
+
+.todos {
+    width: 500px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 1080px) {
+    .app {
+        flex-direction: column;
+        align-items: center;
+    }
+    .calendar {
+        box-sizing: border-box;
+        width: 500px;
+    }
+    .todos {
+        box-sizing: border-box;
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .calendar {
+        width: 100%;
+    }
+    .todos {
+        width: 100%; 
+    }
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid #2196f3;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #2196f3;
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+}
+
+.new-todo-container {
+    padding: 20px 0;
+}
+
+input::placeholder {
+    color: #2196f3;
+}
+
+input:focus{
+    outline: none;
+}
+
+button:focus{
+    outline: none;
+}
+
+.todo-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #2196f3;
+    background-color: transparent;
+    white-space: nowrap;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    color: #2196f3;
+    letter-spacing: .07em;
+    margin: 0 5px;
+}
+
+.todo-button:hover {
+    border-color: #2196f3;
+    background-color: #2196f3;
+    color: white;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 20px 0;
+}
+
+.event {
+    padding: 0 20px 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-event {
+    font-size: 20px;
+}
+
+.working-on-container {
+    font-size: 20px;
+}
