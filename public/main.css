@@ -8,7 +8,6 @@ html, body {
 .app {
     display: flex;
     justify-content: center;
-    color: #2196f3;
 }
 
 .calendar {
@@ -47,10 +46,10 @@ html, body {
 
 input {
     border: none;
-    border-bottom: 2px solid #2196f3;
+    border-bottom: 2px solid black;
     box-sizing: border-box;
     background-color: transparent;
-    color: #2196f3;
+    color: black;
     font-size: 16px;
     padding: 5px;
     width: 100%;
@@ -61,7 +60,7 @@ input {
 }
 
 input::placeholder {
-    color: #2196f3;
+    color: black;
 }
 
 input:focus{
@@ -75,7 +74,6 @@ button:focus{
 .todo-button {
     border-width: 2px;
     border-style: solid;
-    border-color: #2196f3;
     background-color: transparent;
     white-space: nowrap;
     line-height: 1;
@@ -83,15 +81,54 @@ button:focus{
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
     cursor: pointer;
-    color: #2196f3;
     letter-spacing: .07em;
     margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.todo-button {
+    background-color: white;
 }
 
 .todo-button:hover {
-    border-color: #2196f3;
-    background-color: #2196f3;
     color: white;
+}
+
+.todo-start {
+    border-color: #0062cc;
+    color: #0062cc; 
+}
+.todo-start:hover {
+    background-color: #0062cc;
+}
+.todo-finish {
+    border-color: #1e7e34;
+    color: #1e7e34; 
+}
+.todo-finish:hover {
+    background-color: #1e7e34;
+}
+.todo-stop {
+    border-color: #117a8b;
+    color: #117a8b; 
+}
+.todo-stop:hover {
+    background-color: #117a8b;
+}
+.todo-reset {
+    border-color: #117a8b;
+    color: #117a8b; 
+}
+.todo-reset:hover {
+    background-color: #117a8b;
+}
+.todo-delete {
+    border-color: #bd2130;
+    color: #bd2130; 
+}
+.todo-delete:hover {
+    background-color: #bd2130;
 }
 
 .todo-item {

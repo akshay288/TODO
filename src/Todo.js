@@ -73,7 +73,7 @@ class Todo extends React.Component {
         if(currentTodoList.length) {
             currentElem = (
                 <div className='working-on-container'>
-                    <p className='desc-text'>Working On -</p>
+                    <h3 className='desc-text'>Working On</h3>
                     <div className='todo-list'>{currentTodoList}</div>
                 </div>
             )
