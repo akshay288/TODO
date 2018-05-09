@@ -9,7 +9,7 @@ import {
 } from './actionTypes.js'
 
 
-let initialState = {
+export const initialState = {
     todos: [],
     events: [],
     loaded: false

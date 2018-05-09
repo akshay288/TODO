@@ -8,7 +8,8 @@ import {
     RESET_TODO,
     UPDATE_EVENTS,
     REFRESH_STATE
-} from './actionTypes.js'
+} from './actionTypes'
+import { initialState } from './reducers'
 
 
 export function newTODO(name) {
@@ -60,6 +61,11 @@ export function refreshState() {
                 dispatch({
                     type: REFRESH_STATE,
                     state: state['state']
+                })
+            } else {
+                dispatch({
+                    type: REFRESH_STATE,
+                    state: initialState
                 })
             }
         })
