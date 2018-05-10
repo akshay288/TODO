@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { newTODO, startTODO, finishTODO, deleteTODO, stopTODO, resetTODO } from './actionCreators'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import TextField from 'material-ui/TextField'
 
 
 class Todo extends React.Component {
@@ -78,15 +81,31 @@ class Todo extends React.Component {
                 </div>
             )
         }
+        const muiTheme = getMuiTheme({
+            palette: {
+                primary1Color: '#117a8b',
+                primary2Color: '#117a8b',
+                primary3Color: '#117a8b',
+                accent1Color: '#117a8b',
+                accent2Color: '#117a8b',
+                accent3Color: '#117a8b',
+            },
+        });
         return (
             <div className='todos'>
                 <h2>TODOS</h2>
                 {currentElem}
                 <div className='new-todo-container'>
-                    <input type='text' placeholder='New TODO'
-                        value={this.state.newTodoName}
-                        onChange={this.handleChange}
-                        onKeyUp={e => {if (e.key === 'Enter') {this.handleNewTodo(e)}}}/>
+                    <MuiThemeProvider muiTheme={muiTheme}>
+                        <TextField
+                            value={this.state.newTodoName}
+                            floatingLabelText='New TODO'
+                            type='text'
+                            margin='normal'
+                            style={{width: '100%'}}
+                            onChange={this.handleChange}
+                            onKeyPress={e => {if (e.key === 'Enter') {this.handleNewTodo(e)}}}/>
+                    </MuiThemeProvider>
                 </div>
                 <div className='next-container'>
                     <div className='todo-list'>{nextTodoList}</div>

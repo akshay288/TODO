@@ -44,27 +44,8 @@ html, body {
     }
 }
 
-input {
-    border: none;
-    border-bottom: 2px solid black;
-    box-sizing: border-box;
-    background-color: transparent;
-    color: black;
-    font-size: 16px;
-    padding: 5px;
-    width: 100%;
-}
-
 .new-todo-container {
-    padding: 20px 0;
-}
-
-input::placeholder {
-    color: black;
-}
-
-input:focus{
-    outline: none;
+    padding-bottom: 20px;
 }
 
 button:focus{
