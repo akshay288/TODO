@@ -36,7 +36,7 @@ class Todo extends React.Component {
         const finishedTodo = todos.filter(e => e.finished)
 
         const currentTodoList = currentTodo.map(e => (
-            <div className='todo-item'>
+            <div className='todo-item working-on'>
                 <div className='todo-name'>{e['name']}</div>
                 <div className='todo-controls'>
                     <button className='todo-button todo-stop'

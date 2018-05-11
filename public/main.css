@@ -122,6 +122,10 @@ button:focus{
     padding: 0 20px 20px 0;
 }
 
+.todo-item.working-on {
+    padding-bottom: 0;
+}
+
 .event {
     padding: 0 20px 20px 0;
     display: flex;
