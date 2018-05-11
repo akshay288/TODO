@@ -93,7 +93,7 @@ class Todo extends React.Component {
         });
         return (
             <div className='todos'>
-                <h2>TODOS</h2>
+                <h2 className='todo-header'>TODOS</h2>
                 {currentElem}
                 <div className='new-todo-container'>
                     <MuiThemeProvider muiTheme={muiTheme}>
