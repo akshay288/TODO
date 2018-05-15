@@ -6,7 +6,9 @@ import thunk from 'redux-thunk'
 
 const wrappedReducer = (state, action) => {
     if(action.type === REFRESH_STATE) {
+        // keeps keys that where in inital state but not in next state
         return {
+            ...state,
             ...action.state,
             loaded: true
         }

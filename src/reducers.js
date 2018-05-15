@@ -5,13 +5,21 @@ import {
     DELETE_TODO,
     STOP_TODO,
     RESET_TODO,
-    UPDATE_EVENTS
+    UPDATE_EVENTS,
+    REMOVE_CALENDAR,
+    ADD_CALENDAR
 } from './actionTypes.js'
 
 
 export const initialState = {
     todos: [],
     events: [],
+    calendars: [
+        {
+            id: 'primary',
+            name: 'primary'
+        }
+    ],
     loaded: false
 }
 
@@ -77,6 +85,25 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 events: action.events
+            }
+        case REMOVE_CALENDAR:
+            return {
+                ...state,
+                calendars: state.calendars.filter(e => e.id !== action.calendarID)
+            }
+        case ADD_CALENDAR:
+            if (state.calendars.map(e => e.calendarID).includes(action.calendarID)) {
+                return state
+            }
+            return {
+                ...state,
+                calendars: [
+                    ...state.calendars,
+                    {
+                        id: action.calendarID,
+                        name: action.calendarName
+                    }
+                ]
             }
         default:
             return state

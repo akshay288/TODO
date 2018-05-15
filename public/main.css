@@ -5,9 +5,64 @@ html, body {
     margin: 0;
 }
 
+.desc-text {
+    color: lightgrey;
+}
+
 .app {
+    width: 100%;
+    height: 100%;
+}
+
+.main-content {
     display: flex;
     justify-content: center;
+    opacity: 1;
+    transition: opacity .25s;
+}
+
+.main-content.hidden {
+    opacity: 0;
+}
+
+.options-button {
+    position: absolute;
+    color: lightgrey;
+    cursor: pointer;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.options-button:hover {
+    color: grey;
+}
+
+.Options.hidden {
+    top: -100vh;
+}
+
+.Options {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 2;
+    transition: top 0.25s;
+}
+
+.menu-items {
+    width: 500px;
+    margin: auto;
+}
+
+@media screen and (max-width: 540px) {
+    .menu-items {
+        width: 500px;
+        margin: 0 20px;
+    }
 }
 
 .calendar {
@@ -25,7 +80,7 @@ html, body {
 }
 
 @media screen and (max-width: 1080px) {
-    .app {
+    .main-content {
         flex-direction: column;
         align-items: center;
     }

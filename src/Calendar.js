@@ -6,7 +6,17 @@ import { refreshEvents } from './actionCreators'
 
 class Calendar extends Component {
     componentDidMount() {
-        this.props.dispatch(refreshEvents())
+        this.props.dispatch(
+            refreshEvents(this.props.calendars.map(e => e.id))
+        )
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.calendars !== this.props.calendars) {
+            this.props.dispatch(
+                refreshEvents(this.props.calendars.map(e => e.id))
+            )
+        }
     }
 
     formatTime(t) {
@@ -48,7 +58,8 @@ class Calendar extends Component {
 }
 
 const mapStateToProps = state => ({
-    events: state.events
+    events: state.events,
+    calendars: state.calendars
 })
 
 export default connect(mapStateToProps)(Calendar)
