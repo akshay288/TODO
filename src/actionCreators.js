@@ -134,6 +134,7 @@ export function refreshEvents(calendarIDS) {
                 // Flatten the list passed
                 let events = data.reduce((acc, val) => acc.concat(val), [])
                 events = events.sort((a, b) => (moment(a.time).isBefore(moment(b.time)) ? -1 : 1))
+                events = events.slice(0, 10)
                 dispatch({
                     type: UPDATE_EVENTS,
                     events: events
