@@ -1,0 +1,13 @@
+.calendar-header {
+    margin-bottom: 30px;
+}
+
+.event {
+    padding: 0 20px 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-event {
+    font-weight: 700;
+}

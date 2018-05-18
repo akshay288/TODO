@@ -5,10 +5,13 @@ import {
     DELETE_TODO,
     STOP_TODO,
     RESET_TODO,
+    MOVE_TODO,
     UPDATE_EVENTS,
     REMOVE_CALENDAR,
     ADD_CALENDAR
-} from './actionTypes.js'
+} from './actionTypes'
+import { arrayMove } from 'react-sortable-hoc'
+import { sortTodoFunc } from './utils'
 
 
 export const initialState = {
@@ -80,6 +83,24 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 todos: state.todos.filter(e => e.id !== action.todoID)
+            }
+        case MOVE_TODO:
+            const nextTodos = [...state.todos]
+                .filter(e => !e.started && !e.finished)
+                .sort(sortTodoFunc)
+            const fromID = nextTodos[action.indexFrom].id
+            const toID = nextTodos[action.indexTo].id
+
+            let allTodos = [...state.todos].sort(sortTodoFunc)
+            const fromIndex = allTodos.findIndex(e => (e.id === fromID))
+            const toIndex = allTodos.findIndex(e => (e.id === toID))
+            allTodos = arrayMove(allTodos, fromIndex, toIndex)
+
+            allTodos = allTodos.map((e, i) => ({...e, id: i}))
+
+            return {
+                ...state,
+                todos: allTodos
             }
         case UPDATE_EVENTS:
             return {

@@ -6,6 +6,7 @@ import {
     DELETE_TODO,
     STOP_TODO,
     RESET_TODO,
+    MOVE_TODO,
     UPDATE_EVENTS,
     REFRESH_STATE,
     REMOVE_CALENDAR,
@@ -54,6 +55,14 @@ export function resetTODO(todoID) {
     return {
         type: RESET_TODO,
         todoID: todoID 
+    }
+}
+
+export function moveTODO(indexFrom, indexTo) {
+    return {
+        type: MOVE_TODO,
+        indexFrom,
+        indexTo
     }
 }
 

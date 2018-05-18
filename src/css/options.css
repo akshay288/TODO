@@ -1,0 +1,43 @@
+.options-button {
+    position: absolute;
+    color: lightgrey;
+    cursor: pointer;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.options-button:hover {
+    color: grey;
+}
+
+.Options.hidden {
+    top: -100vh;
+}
+
+.Options {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 2;
+    transition: top 0.25s;
+}
+
+.menu-items {
+    width: 500px;
+    margin: auto;
+}
+
+@media screen and (max-width: 540px) {
+    .menu-items {
+        width: 500px;
+        margin: 0 20px;
+    }
+}
+
+.desc-text {
+    color: lightgrey;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import { refreshEvents } from './actionCreators'
+import '../css/calendar.css'
 
 
 class Calendar extends Component {
@@ -49,7 +50,7 @@ class Calendar extends Component {
         ))
         return (
             <div className='calendar'>
-                <h2>Events</h2>
+                <h2 className='calendar-header'>Events</h2>
                 <div className='first-event-container'>{firstEvent}</div>
                 <div className='next-event-list'>{nextEvents}</div>
             </div>

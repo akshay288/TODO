@@ -4,6 +4,7 @@ import queryString from 'qs'
 import { removeCalendar, addCalendar } from './actionCreators'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Checkbox from 'material-ui/Checkbox'
+import '../css/options.css'
 
 
 class Calendar extends Component {

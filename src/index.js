@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import App from './App'
-import { store } from './configureStore'
+import App from './js/App'
+import { store } from './js/configureStore'
 import { Provider } from 'react-redux'
-import { refreshState } from './actionCreators'
+import { refreshState } from './js/actionCreators'
 
 
 const inView = dispatch => {

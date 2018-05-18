@@ -5,6 +5,7 @@ import Options from './Options'
 import { connect } from 'react-redux'
 import { refreshState } from './actionCreators'
 import 'font-awesome/css/font-awesome.min.css'
+import '../css/app.css'
 
 
 class App extends Component {
