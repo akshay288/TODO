@@ -15,11 +15,11 @@ const SortableItem = SortableElement(({value}) => {
     return <li className='todo-item-container'>{value}</li>
 });
 
-const SortableList = SortableContainer(({items}) => {
+const SortableList = SortableContainer(({items, keys}) => {
     return (
         <ul className='todo-list'>
             {items.map((value, index) => (
-                <SortableItem key={`item-${index}`} index={index} value={value} />
+                <SortableItem key={`item-${keys[index]}`} index={index} value={value} />
             ))}
         </ul>
     );
@@ -108,6 +108,7 @@ class Todo extends React.Component {
                 <div className='next-container'>
                     <SortableList
                       items={nextTodoItems}
+                      keys={nextTodo.map(e => e['id'])}
                       onSortEnd={({oldIndex, newIndex}) => dispatch(moveTODO(oldIndex, newIndex))}/>
                 </div>
                 <div className='new-todo-container'>

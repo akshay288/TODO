@@ -1,3 +1,3 @@
 
 
-export const sortTodoFunc = (a, b) => (a.id > b.id)
+export const sortTodoFunc = (a, b) => a.id - b.id
