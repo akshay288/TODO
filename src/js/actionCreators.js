@@ -124,8 +124,8 @@ export function refreshEvents(calendarIDS) {
             
                 return fetch(url, queryParams)
                     .then(response => response.json())
-                    .then(response => response.items.filter(e => 'dateTime' in e))
-                    .then(response => response.items.map(
+                    .then(response => response.items.filter(e => 'dateTime' in e.start))
+                    .then(items => items.map(
                         e => ({
                             time: e.start.dateTime,
                             name: e.summary
