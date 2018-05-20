@@ -21,12 +21,7 @@ class Calendar extends Component {
     }
 
     formatTime(t) {
-        t = moment(t)
-        if(t.isSame(moment(), 'day')) {
-            return t.format('h:mm a')
-        } else {
-            return t.format('dddd h:mm a')
-        }
+        return moment(t).format('h:mm a')
     }
 
     renderEvent(e, showTill = false) {
@@ -34,7 +29,10 @@ class Calendar extends Component {
             <div className='event'>
                 <div className='event-name'>{e.name}</div>
                 <div className='event-time'>
-                    {(showTill ? ('(' + moment(e.time).from(moment()) + ') ') : '') + this.formatTime(e.time)}
+                    <span className='relative-time'>
+                        {(showTill ? ('(' + moment(e.time).from(moment()) + ')') : '')}
+                    </span>
+                    <span className='clock-time'>{this.formatTime(e.time)}</span>
                 </div>
             </div>
         )
@@ -47,20 +45,24 @@ class Calendar extends Component {
         }
         const currentEvents = events.filter(e => moment(e.time).isBefore(moment()))
         const restEvents = events.filter(e => !moment(e.time).isBefore(moment()))
+        const todayEvents = restEvents.filter(e => moment(e.time).isSame(moment(), 'day'))
+        const tommorowEvents = restEvents.filter(e => !moment(e.time).isSame(moment(), 'day'))
 
         let firstEvent = null
         let nextEvents = []
-        if(restEvents.length) {
-            firstEvent = restEvents[0]
-            nextEvents = restEvents.slice(1)
+        if(todayEvents.length) {
+            firstEvent = todayEvents[0]
+            nextEvents = todayEvents.slice(1)
         }
         return (
             <div className='calendar'>
                 <h2 className='calendar-header'>Events</h2>
                 <div className='current-event-container'>{currentEvents.map(e => this.renderEvent(e))}</div>
-                {restEvents.length ? (<h4>Upcoming</h4>) : null}
+                {todayEvents.length ? (<h4>Upcoming</h4>) : null}
                 <div className='first-event-container'>{firstEvent ? this.renderEvent(firstEvent, true) : null}</div>
                 <div className='next-event-list'>{nextEvents.map(e => this.renderEvent(e))}</div>
+                {tommorowEvents.length ? (<h4>Tommorow</h4>) : null}
+                <div className='tommorow-event-list'>{tommorowEvents.map(e => this.renderEvent(e))}</div>
             </div>
         )
     }

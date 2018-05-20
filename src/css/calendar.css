@@ -13,3 +13,8 @@
 .current-event-container {
     font-weight: 700;
 }
+
+.relative-time {
+    padding-right: 10px;
+    font-weight: 500;
+}

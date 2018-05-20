@@ -64,7 +64,7 @@ class Calendar extends Component {
         }
         return (
             <div className={'Options' + (this.props.openState ? '': ' hidden')}>
-                <i className="options-button fa fa-chevron-up fa-3x" onClick={this.props.closeFunc}/>
+                <i className="options-button fa fa-chevron-up fa-2x" onClick={this.props.closeFunc}/>
                 <div className='menu-items'>
                     <h1>Options</h1>
                     <h3>Active Calendars</h3>
