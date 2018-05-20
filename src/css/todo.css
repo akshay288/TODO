@@ -53,11 +53,8 @@ button:focus{
 .todo-item-container {
     list-style: none;
     display: flex;
-    padding: 10px 0;
-}
-
-.todo-item-container.working-on {
-    padding-top: 0;
+    height: 40px;
+    align-items: center;
 }
 
 .todo-item {

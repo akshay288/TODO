@@ -3,8 +3,7 @@
     color: lightgrey;
     cursor: pointer;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 20px;
 }
 
 .options-button:hover {

@@ -97,7 +97,6 @@ class Todo extends React.Component {
                     <ul className='todo-list'>
                         {currentTodoItems.map(e => <li className='todo-item-container working-on'>{e}</li>)}
                     </ul>
-                    <hr/>
                 </div>
             )
         }
@@ -106,6 +105,7 @@ class Todo extends React.Component {
                 <h2 className='todo-header'>Todos</h2>
                 {currentElem}
                 <div className='next-container'>
+                    <h4>Next</h4>
                     <SortableList
                       items={nextTodoItems}
                       keys={nextTodo.map(e => e['id'])}
@@ -122,7 +122,7 @@ class Todo extends React.Component {
                       onKeyPress={e => {if (e.key === 'Enter') {this.handleNewTodo(e)}}}/>
                 </div>
                 <div className='finished-container'>
-                    {finishedTodoItems.length ? <hr/> : null}
+                    <h4>Completed</h4>
                     <ul className='todo-list'>
                         {finishedTodoItems.map(e => <li className='todo-item-container'>{e}</li>)}
                     </ul>

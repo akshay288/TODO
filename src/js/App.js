@@ -5,6 +5,7 @@ import Options from './Options'
 import { connect } from 'react-redux'
 import { refreshState } from './actionCreators'
 import 'font-awesome/css/font-awesome.min.css'
+import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '../css/app.css'
 
 

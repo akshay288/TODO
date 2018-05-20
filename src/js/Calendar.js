@@ -29,30 +29,38 @@ class Calendar extends Component {
         }
     }
 
+    renderEvent(e, showTill = false) {
+        return (
+            <div className='event'>
+                <div className='event-name'>{e.name}</div>
+                <div className='event-time'>
+                    {(showTill ? ('(' + moment(e.time).from(moment()) + ') ') : '') + this.formatTime(e.time)}
+                </div>
+            </div>
+        )
+    }
+
     render() {
         const events = this.props.events
         if(!events.length) {
             return null
         }
-        const firstEvent = (
-            <div className='event first-event'>
-                <div className='event-name'>{events[0].name}</div>
-                <div className='event-time'>
-                    {this.formatTime(events[0].time) + ' (' + moment(events[0].time).from(moment()) + ')'}
-                </div>
-            </div>
-        )
-        const nextEvents = events.slice(1, events.length).map(e => (
-            <div className='event'>
-                <div className='event-name'>{e.name}</div>
-                <div className='event-time'>{this.formatTime(e.time)}</div>
-            </div>
-        ))
+        const currentEvents = events.filter(e => moment(e.time).isBefore(moment()))
+        const restEvents = events.filter(e => !moment(e.time).isBefore(moment()))
+
+        let firstEvent = null
+        let nextEvents = []
+        if(restEvents.length) {
+            firstEvent = restEvents[0]
+            nextEvents = restEvents.slice(1)
+        }
         return (
             <div className='calendar'>
                 <h2 className='calendar-header'>Events</h2>
-                <div className='first-event-container'>{firstEvent}</div>
-                <div className='next-event-list'>{nextEvents}</div>
+                <div className='current-event-container'>{currentEvents.map(e => this.renderEvent(e))}</div>
+                {restEvents.length ? (<h4>Upcoming</h4>) : null}
+                <div className='first-event-container'>{firstEvent ? this.renderEvent(firstEvent, true) : null}</div>
+                <div className='next-event-list'>{nextEvents.map(e => this.renderEvent(e))}</div>
             </div>
         )
     }
