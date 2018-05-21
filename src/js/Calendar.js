@@ -61,7 +61,7 @@ class Calendar extends Component {
                 {todayEvents.length ? (<h4>Upcoming</h4>) : null}
                 <div className='first-event-container'>{firstEvent ? this.renderEvent(firstEvent, true) : null}</div>
                 <div className='next-event-list'>{nextEvents.map(e => this.renderEvent(e))}</div>
-                {tommorowEvents.length ? (<h4>Tommorow</h4>) : null}
+                {tommorowEvents.length ? (<h4>Tomorrow</h4>) : null}
                 <div className='tommorow-event-list'>{tommorowEvents.map(e => this.renderEvent(e))}</div>
             </div>
         )
